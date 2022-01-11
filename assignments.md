@@ -17,3 +17,7 @@
             - Other string values MUST be non-empty and non-undefined
             - Numeric value Must be positive
         - create a AddProduct() method that will accept ProductInfo. If all values are valid then only the Product will be added and Products Array will be returned      
+
+# Date: 11-Jan-2022
+1. Create a Windows Calculator Component with 
+    - +,_,*,/, Power, Square Root
