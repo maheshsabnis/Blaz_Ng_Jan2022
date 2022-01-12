@@ -1,0 +1,16 @@
+<div class="container" *ngIf="DataSource.length === 0">
+    <strong>No record to Display</strong>
+</div>
+
+<table class="table table-bordered table-striped" *ngIf="DataSource.length>0">
+    <thead>
+        <tr>
+            <th *ngFor="let col of columnHeaders">{{col}}</th>
+        </tr>  
+    </thead>
+    <tbody>
+         <tr *ngFor="let data of DataSource" (click)="onRowClick(data)">
+          <td *ngFor="let col of columnHeaders">{{data[col]}}</td>
+         </tr> 
+    </tbody>
+</table>

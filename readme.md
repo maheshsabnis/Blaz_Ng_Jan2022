@@ -189,3 +189,46 @@ runtime.js            | runtime       |   6.85 kB |-->The Angular CLI WebPack fi
         - Structural Directives: Modify the DOM (Add/Remove) based on Data Passed to it
             - *ngIf: Evaluate an If condition
             - *ngFor: Execute the for..of loop to generate UI
+
+- angular.json
+  - This the Main Angular Configuration File
+    - Build Dependencies
+      - Start Build from main.ts
+      - @angular-devkit/build-angular:browser
+        - The Angular CLI Development Server that will build the Project and will load the JS file in Browser
+        - polyfills
+          - zone.js
+            - Optimize the JS in Browser
+            - Monitor any Runtime Errors
+        - tsconfig.app.json
+          - TypeScript Transpilation Configuration
+        - The "styles" isn angular.json is an array that contains CSS references        
+    - Test Dependencies
+    - Runtime or Production Dependencies
+
+# Angular Application Development
+- Component Creation Practices
+  - Do not initialize or perform 'Time-Consuming-Heavy-Logic' in Constructor
+  - Let the Component class implement the 'OnInit' interface
+  - This interface contains 'ngOnInit()' method, this will be 'auto-invoked' immediately after constructor
+  - IMP***
+    - If dynamically generating UI based on public members of the TypeScrtipt class, then the TypeScript class MUST define an 'indexer-property' that will execute the 'for..of' loop on it  
+- Creating Re-Usable Component aka Creation of Component Directives
+  - Parent Child Communication
+  - Guideline for Creating Re-Usable Components
+    - Plan for the UI
+    - Plan for public properties those who will accept data from its parent and render UI
+      - The '@Input()' decorator from '@angular/core'
+        - The @Input is always applied on public set property
+        - This will be used for 'Property-Binding'
+          - e.g.  <Child-Component [PROPERTY-NAME]="DATA-FROM-PARENT"/>
+    - Plan for methods and events, in such a way that these method will be executed at Component level and using event the data will be emitted from Child to parent
+      - An '@Output()' decorator that will be applied on 'EventEmitter<T>', both are from '@angular/core'
+        - The T is the data-type to be send from Child to the Parent
+        - The EventEmitter is sued by the Parent for 'Event-Binding', by subscribing it by a method from the Parent Component
+          - <Child-Component (EVENT-EMITTER-FROM-CHILD)="method-from-parent()"/>
+          - The EventEmitter has 'emit()' method to emit data 
+- Working with Forms  
+- Creating Directive
+- Http Communication from Angular Application
+- Single-Page-Application (SPA)       

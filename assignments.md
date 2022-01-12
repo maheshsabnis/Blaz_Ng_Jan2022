@@ -21,3 +21,7 @@
 # Date: 11-Jan-2022
 1. Create a Windows Calculator Component with 
     - +,_,*,/, Power, Square Root
+
+# Date: 12-Jan-2021
+1. Create a Reusable <SelectComponent> that will generate DropDownList for Categories and Manufacturers. The Selected Category/Manufacture must be send to the parent
+2. Modify the DataGridComponent by generating 'Delete' button in each table-row, when this button is clicked, the selected row MUST be deleted from the array of the parent component     

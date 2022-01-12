@@ -6,13 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    public name:string;
+    public name:number;
     roles:Array<string>;
     selectedRole:string;
     toggle:boolean;
 
     constructor(){
-      this.name = "Mahesh"
+      this.name = 100
       this.roles = new Array<string>();
       this.selectedRole ='';
 
@@ -25,7 +25,7 @@ export class AppComponent {
     }
 
     display():void {
-      this.name = "Mahesh Sabnis";
+      this.name = 200
     }
 
     updateToggle():void{

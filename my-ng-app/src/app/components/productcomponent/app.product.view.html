@@ -1,0 +1,64 @@
+<h2>The Product Information</h2>
+<div class="container">
+  <div class="form-group">
+    <label>Product Row Id</label>
+    <input
+      type="text"
+      class="form-control"
+      [(ngModel)]="product.ProductRowId"
+    />
+  </div>
+  <div class="form-group">
+    <label>Product Id</label>
+    <input type="text" class="form-control" [(ngModel)]="product.ProductId" />
+  </div>
+  <div class="form-group">
+    <label>Product Name</label>
+    <input type="text" class="form-control" [(ngModel)]="product.ProductName" />
+  </div>
+  <div class="form-group">
+    <label>Category Name</label>
+    <select class="form-control" [(ngModel)]="product.CategoryName">
+      <option *ngFor="let cat of categories" value="{{cat}}">{{cat}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Manufacturer Name</label>
+    <select class="form-control" [(ngModel)]="product.Manufacturer">
+      <option *ngFor="let man of manufacturers" value="{{man}}">{{man}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Description</label>
+    <input type="text" class="form-control" [(ngModel)]="product.Description" />
+  </div>
+  <div class="form-group">
+    <label>Base Price</label>
+    <input type="number" class="form-control" [(ngModel)]="product.BasePrice" />
+  </div>
+  <div class="btn-group">
+      <input type="button" value="Clear" class="btn btn-warning" (click)="clear()">
+      <input type="button" value="Save" class="btn btn-success" (click)="save()">
+  </div>
+  <br/>
+  <!--Using the Re-Usable Component
+     (notify): is an event emitted from the chid component
+     it is subscibed by the getSelectedProduct
+     $event is a standard JS object  
+-->
+  <app-datagrid-component [DataSource]="products" (notify)="getSelectedProduct($event)"></app-datagrid-component>
+
+  <!-- <table class="table table-bordered table-striped">
+      <thead>
+          <tr>
+              <th *ngFor="let col of columnHeaders">{{col}}</th>
+          </tr>  
+      </thead>
+      <tbody>
+           <tr *ngFor="let prd of products" (click)="getSelectedProduct(prd)">
+            <td *ngFor="let col of columnHeaders">{{prd[col]}}</td>
+           </tr> 
+      </tbody>
+  </table> -->
+</div>
+
