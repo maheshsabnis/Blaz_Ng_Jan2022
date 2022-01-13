@@ -7,13 +7,14 @@ import {Component, Input, Output, EventEmitter} from '@angular/core';
 export class DataGridComponent{
     private dataSource:Array<any>;
     columnHeaders:Array<string>;
-
+    private _applyColor:string;
     @Output()
     notify:EventEmitter<any>;
     constructor(){
         this.dataSource = new Array<any>();
         this.columnHeaders = new Array<string>(); 
         this.notify = new EventEmitter<any>();
+        this._applyColor = '';
     }
 
 
@@ -33,6 +34,15 @@ export class DataGridComponent{
     get DataSource():Array<any> {
         return this.dataSource;
     }
+
+    @Input()
+    set applyColor(val:string){
+        this._applyColor = val;
+    }
+    get applyColor():string {
+        return this._applyColor;
+    }
+
 
     // Method bind with UI on Child 
     onRowClick(row:any):void {

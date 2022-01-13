@@ -24,4 +24,15 @@
 
 # Date: 12-Jan-2021
 1. Create a Reusable <SelectComponent> that will generate DropDownList for Categories and Manufacturers. The Selected Category/Manufacture must be send to the parent
-2. Modify the DataGridComponent by generating 'Delete' button in each table-row, when this button is clicked, the selected row MUST be deleted from the array of the parent component     
+2. Modify the DataGridComponent by generating 'Delete' button in each table-row, when this button is clicked, the selected row MUST be deleted from the array of the parent component  
+
+# Date: 13-Jan-2021
+
+1. Create a Directive That will validate the data entered in Input element based on the following validation rules
+    - The Data MUST be Positive Integer
+    - The Length must be Minimum 2 Digits and Maximum 10 digits
+    - Only one decimal point is allowed while entering data
+    - Activate the Directive on 'change' event
+2. Modify the DataGridComponent with following requirements
+    - In Each column Header Generate Two Arrow buttons Up-Arrow and Down-Arrow (Use Bootstrap CSS)
+    - When the Up-Arrow is clicked, the data in DataGridComponent MUST sorted in ascending order Based on that column and same for Down-Arrow where data in DataGridComponent MUST sorted in descending order based on that column      

@@ -13,12 +13,14 @@ export class ProductComponent implements OnInit{
     categories = Categories;
     manufacturers = Manufacturers;
     columnHeaders:Array<string>;
+    color:string;
     constructor(){
         this.product = new ProductInfo(0,'','','','','',0);
         this.products= new Array<ProductInfo>();
         this.logic = new ProductLogic();
         this.columnHeaders = new Array<string>();    
         console.log('Constructor Called');
+        this.color = '';
     }
     // the method from OnInit interface
     ngOnInit(): void {

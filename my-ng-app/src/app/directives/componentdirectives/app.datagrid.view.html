@@ -9,7 +9,8 @@
         </tr>  
     </thead>
     <tbody>
-         <tr *ngFor="let data of DataSource" (click)="onRowClick(data)">
+        <!--The [setColor] is a directive that is applied on Table Row-->
+         <tr *ngFor="let data of DataSource" (click)="onRowClick(data)" [setColor]="applyColor">
           <td *ngFor="let col of columnHeaders">{{data[col]}}</td>
          </tr> 
     </tbody>

@@ -7,10 +7,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {ProductComponent} from './components/productcomponent/app.product.component';
 import {DataGridComponent} from './directives/componentdirectives/app.datagrid.component';
+import { ColorDirective } from './directives/attributedirective/app.color.directive';
 
 @NgModule({
   declarations: [
-    AppComponent,ProductComponent, DataGridComponent
+    AppComponent,ProductComponent, DataGridComponent, ColorDirective
   ],
   imports: [
     BrowserModule, FormsModule,

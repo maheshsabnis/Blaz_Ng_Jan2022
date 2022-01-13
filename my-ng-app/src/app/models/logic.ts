@@ -30,6 +30,50 @@ export class ProductLogic {
         123456
       )
     );
+    this.products.push(
+      new ProductInfo(
+        1,
+        'Prd-0001',
+        'Laptop',
+        'Electronics',
+        'MS-ECT',
+        'Gaming',
+        123456
+      )
+    );
+    this.products.push(
+      new ProductInfo(
+        1,
+        'Prd-0001',
+        'Laptop',
+        'Electronics',
+        'MS-ECT',
+        'Gaming',
+        123456
+      )
+    );
+    this.products.push(
+      new ProductInfo(
+        1,
+        'Prd-0001',
+        'Laptop',
+        'Electronics',
+        'MS-ECT',
+        'Gaming',
+        123456
+      )
+    );
+    this.products.push(
+      new ProductInfo(
+        1,
+        'Prd-0001',
+        'Laptop',
+        'Electronics',
+        'MS-ECT',
+        'Gaming',
+        123456
+      )
+    );
   }
   getProducts(): Array<ProductInfo> {
     return this.products;
