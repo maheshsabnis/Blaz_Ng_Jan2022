@@ -230,5 +230,20 @@ runtime.js            | runtime       |   6.85 kB |-->The Angular CLI WebPack fi
           - The EventEmitter has 'emit()' method to emit data 
 - Working with Forms  
 - Creating Directive
+  - They are the re-usable set of UI/UX behavior that we want to use it across various components
+  - Guidelines for Custom Directive 
+    - Understand the UI/UX Behavior
+      - Target Elements of which behavior will change
+    - Plan for Properties those will be set by the directive utilizer (Component)
+    - Plan for Events those will be used to activate Directive
+  - Practical Implementation
+    - The 'Directive' decorator from @angular/core is used to define directive
+    - The @Input decorator MUST be used by the properties to accept data from the utilizer (Component)
+    - If the Directive is used for the Property-Binding (MOST OF THE CASES) then there will be 'selector' as follows
+        - @Directive({selector: '[SELECTOR]'})
+    - Since directive is applied on HTML Element, we need 'ElementRef' class from @angular/core
+      - This will locate an HTML element from Component and execute the Directive
+    - Since the HTML element will update its rendering we need 'Renderer2' from @angular/core to generate modified rendering for the element          
+    - To activate the Directive we need methods those are executed based on events. To host an event for a method we need the 'HostListener' from @angular/core 
 - Http Communication from Angular Application
 - Single-Page-Application (SPA)       
