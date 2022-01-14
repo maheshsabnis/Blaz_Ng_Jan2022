@@ -36,3 +36,15 @@
 2. Modify the DataGridComponent with following requirements
     - In Each column Header Generate Two Arrow buttons Up-Arrow and Down-Arrow (Use Bootstrap CSS)
     - When the Up-Arrow is clicked, the data in DataGridComponent MUST sorted in ascending order Based on that column and same for Down-Arrow where data in DataGridComponent MUST sorted in descending order based on that column      
+
+# Date: 14-Jsn-2022
+ (1-to-4 are mandatory)
+1. Modify the ProductFormComponent to implement required Validation on each field 
+2. Write a Custom Validator for following
+    - The ProductName MUST not have Special Characters and Must start from Upper Case Character 
+    - The Description May contain aplha-numeric characters but Must start from Upper Case Character 
+    - Make sure that the ProductId is not repeated
+3. When validations are failed then the Input Element MUST be having border as Red color
+4. Show * in red color for all mandatory entries
+5. (optional) Create a Validation Summary component to show all error messages on the bottom of the component
+

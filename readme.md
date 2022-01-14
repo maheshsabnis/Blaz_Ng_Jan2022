@@ -254,7 +254,7 @@ runtime.js            | runtime       |   6.85 kB |-->The Angular CLI WebPack fi
             - Attribute Directives
               - [formGroup]
                 - Applied on <form> tag, this will implicitly create an instance of 'ngForm'
-                   - The 'onSubmit' event that is map each FormControl to Model class property
+                   - The 'ngSubmit' event that is map each FormControl to Model class property
               - formControlName, the mapping between public property of the Model class with the editable HTML element
         - ReactiveFormsModule MUST be imported into the 'imports' array of NgModule    
         - Define Validation Rules on Model class properties and store them in FormGroup instance
@@ -269,11 +269,22 @@ runtime.js            | runtime       |   6.85 kB |-->The Angular CLI WebPack fi
             - formGroup: The FormGroup Instance Name bound with the [formGroup] directive of <form> tag
           - [formGroup].controls.[formControlName], a specific editable element
             - formControlName: is the 'FormControlName' used while defining validations on Model class Property
+          - [formGroup].controls.[formControlName].dirty: This means that the element is changed  
           - [formGroup].controls.[formControlName].valid: The Value id valid
           - [formGroup].controls.[formControlName].invalid: The value is invalid
-          - [formGroup].controls.[formControlName].[validation-type].errors: The Error Object
+          - [formGroup].controls.[formControlName].errors.[validation-type]: The Error Object
             - [validation-type] is the validation that is failed
               - e.g. required, min, max, minlength, maxlength, pattern, custom validator, etc.    
+        - The 'Value' Property
+          - Common to FormGroup and FormControlName
+          - FormGrpup.Value: The Value of Each FormControlName in the Form
+          - FormControlName.Value: The value of each editable element bound with the formControlName 
+        - The 'setValue()' method
+          - This uis used to assign data to FormGroup and FormControl       
+    - Rules for Writing Custom Validators
+      - The Method MUSt be Static
+      - The Method will return 'null' if the value is valid else it will return the JSON object
+      - The Method will accepts input parameter as 'AbstractControl'  to read the value for Validation       
 
 - Creating Directive
   - They are the re-usable set of UI/UX behavior that we want to use it across various components
