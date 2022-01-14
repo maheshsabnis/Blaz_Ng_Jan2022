@@ -229,6 +229,52 @@ runtime.js            | runtime       |   6.85 kB |-->The Angular CLI WebPack fi
           - <Child-Component (EVENT-EMITTER-FROM-CHILD)="method-from-parent()"/>
           - The EventEmitter has 'emit()' method to emit data 
 - Working with Forms  
+  - Model-Driven-Forms aka Data-Driven-Forms
+    - ReactiveForms
+      - They are the Forms which will be set or assign behavior based on the Model class and its properties passed to it  
+        - This proves that Angular is MVC
+    - Implementation of Reactive Forms
+      - @angular/forms
+        - ReactiveFormsModule
+          - The Module that provides a container for Model-Driven-Forms
+            - Classes
+              - AbstractControl
+                - A Base class for Each Editable UI element
+              - FormGroup
+                - A Collection of Editable Forms Elements under the <form> tag
+              - FormControl
+                - A Single Editable Element under the <form> tag    
+              - Validators
+                - A Class that contains methods for validations
+                  - required(AbstractControl), requiredTrue(AbstractControl), min(number), max(number), minLength(number), maxLength(number), pattern(string|RegEx), email(AbstractControl). etc.
+                    - IMP**: The method that accepts AbstractControl as input parameter need tgo not to pass any parameter explicitly while calling, instead the value will be directly read from the property for which the validator method is called   
+                  - compose([Array-of-Validation-Rules]), composeAsync()
+                  - All these are static methods  
+                    
+            - Attribute Directives
+              - [formGroup]
+                - Applied on <form> tag, this will implicitly create an instance of 'ngForm'
+                   - The 'onSubmit' event that is map each FormControl to Model class property
+              - formControlName, the mapping between public property of the Model class with the editable HTML element
+        - ReactiveFormsModule MUST be imported into the 'imports' array of NgModule    
+        - Define Validation Rules on Model class properties and store them in FormGroup instance
+        
+          -  frmGroup = new FormGroup({FormControlName:new FormControl(Model.Property, Validators.compose([VALIDATION-RULES]))});  
+              - FormControlName: Applied on Editable element to 'LINK-EDITABLE-ELEMENT-WITH-MODEL-PROPERTY'
+          - Apply validations on UI element
+             - <input type="text" formControlName="FormControlName">
+              - The 'input' element will be coupled with Model property along with its validation rules
+        - Showing Error Messages on UI
+          - [formGroup].controls, the FormsControllCollection
+            - formGroup: The FormGroup Instance Name bound with the [formGroup] directive of <form> tag
+          - [formGroup].controls.[formControlName], a specific editable element
+            - formControlName: is the 'FormControlName' used while defining validations on Model class Property
+          - [formGroup].controls.[formControlName].valid: The Value id valid
+          - [formGroup].controls.[formControlName].invalid: The value is invalid
+          - [formGroup].controls.[formControlName].[validation-type].errors: The Error Object
+            - [validation-type] is the validation that is failed
+              - e.g. required, min, max, minlength, maxlength, pattern, custom validator, etc.    
+
 - Creating Directive
   - They are the re-usable set of UI/UX behavior that we want to use it across various components
   - Guidelines for Custom Directive 
