@@ -49,7 +49,7 @@
   <div class="btn-group" >
       <input type="button" value="Clear" class="btn btn-warning" (click)="clear()"
       [setColor]="'blue'">
-      <input type="submit" value="Save" class="btn btn-success" >
+      <input type="submit" [disabled]="!frmProduct.valid"value="Save" class="btn btn-success" >
   </div>
 </form>
   <br/>

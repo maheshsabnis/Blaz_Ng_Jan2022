@@ -48,3 +48,26 @@
 4. Show * in red color for all mandatory entries
 5. (optional) Create a Validation Summary component to show all error messages on the bottom of the component
 
+# Date: 18-Jan-2022
+1. Create an angular application That will perform following
+    - Create Two Model classes as follows
+        - Categories
+            - ECT, ECL, FOD
+        - Products
+            - This will contains information about product as ProductId, ProductName, CategoryId, UnitPrice
+        - Purchase
+            - ProductId, CategoryId, QUantity, UnitPrice total price
+        - Total Bill
+            - Show An Array of all Purchase
+    - Create Component that will list all categories
+    - When a specific Category is selected, display all products of Selected Category
+    - Select a Row for a Product and in Purchase component, display product where you can enter QUantity, this will calculate total price of a product against the quantity
+
+    - Finllay click on a  checkout link and its should all purchased products with the total bill at the end
+2. Your service will contains
+    - CategoryId to filter products
+    - Array of Purchases
+     
+
+
+

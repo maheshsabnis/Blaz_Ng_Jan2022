@@ -9,17 +9,21 @@ import {ProductComponent} from './components/productcomponent/app.product.compon
 import {DataGridComponent} from './directives/componentdirectives/app.datagrid.component';
 import { ColorDirective } from './directives/attributedirective/app.color.directive';
 import { ProductFormComponent } from './components/productfromcomponent/app.productform.component';
+import { UtilityServiceComponent } from './components/utilityservicecomponent/app.utilityservice.component';
+import { DeptSenderComponent } from './components/communicationcomponents/app.deptsender.component';
+import { EmpReceiverComponent } from './components/communicationcomponents/app.empreceiver.component';
 
 @NgModule({
   declarations: [
     AppComponent,ProductComponent, DataGridComponent, ColorDirective,
-    ProductFormComponent
+    ProductFormComponent, UtilityServiceComponent,
+    DeptSenderComponent,EmpReceiverComponent
   ],
   imports: [
     BrowserModule, FormsModule,ReactiveFormsModule,
     AppRoutingModule
   ],
   providers: [],
-  bootstrap: [ProductFormComponent]
+  bootstrap: [DeptSenderComponent,EmpReceiverComponent]
 })
 export class AppModule { }
