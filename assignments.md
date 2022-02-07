@@ -67,7 +67,14 @@
 2. Your service will contains
     - CategoryId to filter products
     - Array of Purchases
-     
+
+# Date: 07-Feb-2022
+
+1. Complete the REST API Calls to Node.js Http REST API Services for CRUD Operations
+2. Create complete UI for the Assignent 1
+3. Self-Study: Understand the HttpInterceptor while using the Token Based Auth
+    - https://www.webnethelper.com/2020/01/authenticating-angular-8-client.html
+    
 
 
 
