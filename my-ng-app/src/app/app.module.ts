@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 // FormsModule: Required for the Two-Way Binding using [(ngModel)]
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+// importing HttpClientModule
+import {HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,18 +14,20 @@ import { ProductFormComponent } from './components/productfromcomponent/app.prod
 import { UtilityServiceComponent } from './components/utilityservicecomponent/app.utilityservice.component';
 import { DeptSenderComponent } from './components/communicationcomponents/app.deptsender.component';
 import { EmpReceiverComponent } from './components/communicationcomponents/app.empreceiver.component';
+import { DepartmentHttpServiceComponent } from './components/httpservicecomponent/app.departmenthttpservice.component';
 
 @NgModule({
   declarations: [
     AppComponent,ProductComponent, DataGridComponent, ColorDirective,
     ProductFormComponent, UtilityServiceComponent,
-    DeptSenderComponent,EmpReceiverComponent
+    DeptSenderComponent,EmpReceiverComponent,
+    DepartmentHttpServiceComponent
   ],
   imports: [
-    BrowserModule, FormsModule,ReactiveFormsModule,
+    BrowserModule, FormsModule,ReactiveFormsModule, HttpClientModule,
     AppRoutingModule
   ],
   providers: [],
-  bootstrap: [DeptSenderComponent,EmpReceiverComponent]
+  bootstrap: [DepartmentHttpServiceComponent]
 })
 export class AppModule { }

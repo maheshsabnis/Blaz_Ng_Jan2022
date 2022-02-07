@@ -1,0 +1,32 @@
+<h2>
+  The HTTP Call from Angular Application
+</h2>
+
+<div class="container">
+   <button class="btn btn-primary" (click)="getAll()">Get All</button>
+   <br>
+   <button class="btn btn-success" (click)="postNew()">Post</button>
+   <br>
+   <button class="btn btn-warning">Put</button>
+   <br>
+   <button class="btn btn-danger">Put</button>
+   <hr/>
+   <div class="container">
+     <strong>
+       {{receivedResponse}}
+     </strong>
+   </div>
+
+   <hr/>
+
+   <h2>The Security Call</h2>
+   <div class="container">
+     <button (click)="createNewUser()">Create User</button>
+     <br>
+     <button (click)="loginUser()">Auth User</button>
+     <br/>
+     <button (click)="getAuthData()">
+        Get Data
+     </button>
+   </div>
+</div>

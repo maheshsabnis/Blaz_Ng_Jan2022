@@ -31,7 +31,8 @@ export class UtilityServiceComponent implements OnInit {
     this.length = 0;
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+   }
 
   getLength():void {
      this.length = this.serv.getLength(this.str);

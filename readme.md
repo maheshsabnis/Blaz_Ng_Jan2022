@@ -303,4 +303,15 @@ runtime.js            | runtime       |   6.85 kB |-->The Angular CLI WebPack fi
     - Since the HTML element will update its rendering we need 'Renderer2' from @angular/core to generate modified rendering for the element          
     - To activate the Directive we need methods those are executed based on events. To host an event for a method we need the 'HostListener' from @angular/core 
 - Http Communication from Angular Application
+  - rxjs
+    - Reactive Extension for JavaScript
+    - This is an operator model that encapsulates complex promise based operations and on the behalf of receiver of the promise object, the promise object subscription is managed by the 'RxJs Observer'
+  - zonejs
+    - Help the polyfills to supports the Execution
+  - tslib
+    -  The TypeScript support during the transpilation (ES 7/8/9) 
+  - Use @angular/common/http
+    - Import HttpClientModule in the @NgModule
+      - This will resolve 'HttpClient' object and this will be injected in the Angular Service using Constructor injection
+      - This service will contain code for Http Operations   
 - Single-Page-Application (SPA)       
