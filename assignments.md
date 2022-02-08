@@ -76,5 +76,24 @@
     - https://www.webnethelper.com/2020/01/authenticating-angular-8-client.html
     
 
+# Date: 08-Feb-2022
+
+1. Implement the following problem Statement as a Mini-Project
+    - Create a LoginComponent for Login the User
+    - Create a RegisterUserComponent to Create a new User
+    - Create a MainComponent that will have links for the following
+        - When this component is Loaded show the LoginComponent by default and a link to create a new user
+        - Once the Login is Successful and Table will be visible that will show following tow Links
+            - List Departments
+                - This will be ListDepartmentComponent that will show List of Departments bt calling REST API
+                - All departments will be shown in table
+                - Each Table Row will have Edit and Delete button
+                - When an Edit Button is clicked, the EditComponent will be navigated and will show the Department data based on the DeptNo chosen from the table row where the Edit button is clicked
+                    - This component will have Save button to Save updated Department and once the save is successful the ListDepartmentComponent must be loaded 
+                - When the Delete button is Clicked, the DeleteComponent Must be displayed with readonly data for the department tio be deleted based on selected DeptNo from tha table row
+                    - This will have Delete button, once the delete is successful, then Navigate to ListDepartmentsComponent      
+            - Create Department 
+                - This will navigate to the CreateDepartmentComponent
+                    - This will have Save button, when this clicked new Department Must be created and upon department create success navigate to the ListDepartmentsComponent  
 
 

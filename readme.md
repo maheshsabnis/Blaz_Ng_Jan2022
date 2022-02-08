@@ -314,4 +314,37 @@ runtime.js            | runtime       |   6.85 kB |-->The Angular CLI WebPack fi
     - Import HttpClientModule in the @NgModule
       - This will resolve 'HttpClient' object and this will be injected in the Angular Service using Constructor injection
       - This service will contain code for Http Operations   
+  - Promise.then((r)=>{ fn()->Promise }).then((r)=>{fn()->}).then()    
 - Single-Page-Application (SPA)       
+  - @angular/router
+    - RouterModule
+      - Container for SPA 
+      - forRoot(Raoute-Table)
+        - Load the Routing Object Model at the Module level
+        - When the Angular Module is bootstraped (loaded in browser), the Router Object Model will be immediately initialized
+      - forChild(Route-Table)
+        - Used for Lazy-Loading   
+    - Routes
+      - The Route Table
+      - This is a collection of 'Route'
+    - Route
+      - A descriptive entry for SPA for Navigation
+      - Following are properties of Route
+        - path: The navigation URL
+        - component: The component to navigate to
+        - children: For Sub-Routing aka Child Routing
+        - redirectTo: The default redirect when the path does not match
+        - loadChildren: The Lazy Loading
+          - Execute Asynchronously for loading the Module with Components
+    - Router
+      - The Explicit Route Navigation using Code    
+        - The 'navigate(['path', route-parameters])'
+    - ActivatedRoutes
+      - Used for Parameterized Routing
+    - routerLink
+      - An Attribute directive to query to router table for routing navigation
+      - This accepts and array with the first parameter as URL i.e. 'path' and rest all parameters as URL Parameters
+      - [routerLink]=['URL']
+      - This is applied to 'a' anchor tag
+    - router-outlet
+      - Component Directive for loading and rendering components based on the Route Path

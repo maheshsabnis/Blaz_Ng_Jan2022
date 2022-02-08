@@ -15,7 +15,11 @@ export class DepartmentHttpServiceComponent implements OnInit {
     this.receivedResponse = "";
    }
 
-  ngOnInit() { }
+  ngOnInit() {
+
+
+
+  }
 
   // Make call to the service
   // getAll():void {

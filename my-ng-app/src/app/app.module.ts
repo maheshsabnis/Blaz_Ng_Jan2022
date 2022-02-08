@@ -15,19 +15,24 @@ import { UtilityServiceComponent } from './components/utilityservicecomponent/ap
 import { DeptSenderComponent } from './components/communicationcomponents/app.deptsender.component';
 import { EmpReceiverComponent } from './components/communicationcomponents/app.empreceiver.component';
 import { DepartmentHttpServiceComponent } from './components/httpservicecomponent/app.departmenthttpservice.component';
+import { HomeComponent } from './components/routingapp/app.home.component';
+import { ContactComponent } from './components/routingapp/app.contact.component';
+import { AboutComponent } from './components/routingapp/app.about.component';
+import { MainRoutingComponent } from './components/routingapp/app.mainrouting.component';
 
 @NgModule({
   declarations: [
     AppComponent,ProductComponent, DataGridComponent, ColorDirective,
     ProductFormComponent, UtilityServiceComponent,
     DeptSenderComponent,EmpReceiverComponent,
-    DepartmentHttpServiceComponent
+    DepartmentHttpServiceComponent,
+    HomeComponent,ContactComponent,AboutComponent,MainRoutingComponent
   ],
   imports: [
     BrowserModule, FormsModule,ReactiveFormsModule, HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule // importing the Routing Object Model for routing
   ],
   providers: [],
-  bootstrap: [DepartmentHttpServiceComponent]
+  bootstrap: [MainRoutingComponent]
 })
 export class AppModule { }
