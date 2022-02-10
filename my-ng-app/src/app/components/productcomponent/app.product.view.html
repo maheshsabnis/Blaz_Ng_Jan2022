@@ -35,6 +35,7 @@
   <div class="form-group">
     <label>Base Price</label>
     <input type="number" class="form-control" [(ngModel)]="product.BasePrice" />
+    <input type="text" class="form-control" [value]="productTax" disabled>
   </div>
   <div class="btn-group" >
       <input type="button" value="Clear" class="btn btn-warning" (click)="clear()"
@@ -62,7 +63,7 @@
   <!--Using the Re-Usable Component
      (notify): is an event emitted from the chid component
      it is subscibed by the getSelectedProduct
-     $event is a standard JS object  
+     $event is a standard JS object
 -->
   <app-datagrid-component [DataSource]="products" (notify)="getSelectedProduct($event)"
    [applyColor]="color"></app-datagrid-component>
@@ -71,12 +72,12 @@
       <thead>
           <tr>
               <th *ngFor="let col of columnHeaders">{{col}}</th>
-          </tr>  
+          </tr>
       </thead>
       <tbody>
            <tr *ngFor="let prd of products" (click)="getSelectedProduct(prd)">
             <td *ngFor="let col of columnHeaders">{{prd[col]}}</td>
-           </tr> 
+           </tr>
       </tbody>
   </table> -->
 </div>

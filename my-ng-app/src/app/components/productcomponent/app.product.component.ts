@@ -14,13 +14,15 @@ export class ProductComponent implements OnInit{
     manufacturers = Manufacturers;
     columnHeaders:Array<string>;
     color:string;
+    productTax:number;
     constructor(){
         this.product = new ProductInfo(0,'','','','','',0);
         this.products= new Array<ProductInfo>();
         this.logic = new ProductLogic();
-        this.columnHeaders = new Array<string>();    
+        this.columnHeaders = new Array<string>();
         console.log('Constructor Called');
         this.color = '';
+        this.productTax = 0;
     }
     // the method from OnInit interface
     ngOnInit(): void {
@@ -35,6 +37,7 @@ export class ProductComponent implements OnInit{
     }
     save():void {
         this.products = this.logic.registerProduct(this.product);
+        this.productTax = this.product.BasePrice * 0.02;
     }
 
     // getSelectedProduct(prd:ProductInfo):void {
@@ -44,7 +47,7 @@ export class ProductComponent implements OnInit{
     // }
 
     getSelectedProduct(event:any):void {
-        // read value received from the event 
+        // read value received from the event
         console.log(event);
         this.product = event;
     }

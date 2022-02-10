@@ -33,6 +33,6 @@ import { MainRoutingComponent } from './components/routingapp/app.mainrouting.co
     AppRoutingModule // importing the Routing Object Model for routing
   ],
   providers: [],
-  bootstrap: [MainRoutingComponent]
+  bootstrap: [ProductComponent]
 })
 export class AppModule { }

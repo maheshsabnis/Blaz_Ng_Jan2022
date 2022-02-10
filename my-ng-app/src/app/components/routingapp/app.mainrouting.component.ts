@@ -18,6 +18,10 @@ import {Router} from '@angular/router';
                 <!--The Route Parameter-->
               <a [routerLink]="['contact', id]">Contact</a>
               </td>
+              <td>
+                <!--The Route For Lazy Loading-->
+              <a [routerLink]="['lazy']">Lazy Module</a>
+              </td>
             </tr>
 
           </tbody>

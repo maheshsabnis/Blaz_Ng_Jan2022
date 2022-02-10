@@ -96,4 +96,6 @@
                 - This will navigate to the CreateDepartmentComponent
                     - This will have Save button, when this clicked new Department Must be created and upon department create success navigate to the ListDepartmentsComponent  
 
+# Date:10-Feb-2022
+- Modify the app.product.component.spec.ts to check if thew new row for Product is added into the table when the 'save' button is clicked
 

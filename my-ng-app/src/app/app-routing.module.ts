@@ -16,6 +16,10 @@ const routes: Routes = [
      children:[
        {path: 'product', component: ProductComponent}
     ]},
+    {
+      path:'lazy', loadChildren:()=> import('./../lib/app.lazy.module')
+                                    .then(m=>m.LazyModule)
+    },
   {path:'**', redirectTo:''} // redirect to default component
 ];
 

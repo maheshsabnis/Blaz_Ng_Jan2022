@@ -348,3 +348,116 @@ runtime.js            | runtime       |   6.85 kB |-->The Angular CLI WebPack fi
       - This is applied to 'a' anchor tag
     - router-outlet
       - Component Directive for loading and rendering components based on the Route Path
+    - Lazy-Loading
+      - A Mechanism using which the Angular Module (with all of its dependencies ) will be loaded on demand
+        - Once it is loaded it will be cached
+        - The 'Route' class
+          - The 'loadChildren'
+            - Discover and Load the module asynchronously
+          - loadChildren will load the module lazily but this module MUST use/import the 'CommonModule'
+            - CommonModule
+              - Used to inform to the BrowserModule that all components from the current module can be used for rendering
+              - IMP****
+                - An Angular application can load 'Only-One-Instance' of BrowserModule 
+     
+    - Guards  
+      - The 'CanActive' property of 'Route' class is used to verify if the Routing is enabled / shown to the user
+        - THis will accept an array that contains a Angular Service Type to verify the Route Access
+  # Angular Test using Jest
+  - install dependencies
+    - npm install --save-de jest jest-preset-angular
+    -  npm i --save-dev @types/jest
+    - npm install -g jest
+
+- Modify the test.ts with the configuration for JEST Testing
+
+```javascript
+// lets inform to the angular.json that the 'jest' will be used instead of karms
+// Configure jest with In-Memory map for the DOM which will use the
+// CSS, DOCTYPE and the Body for traversing through HTML Elements
+
+import 'jest-preset-angular';
+
+// Configure the CSS property for window object in the memory
+
+Object.defineProperty(window, 'CSS', { value: null });
+
+// define a doctype that will be used to point to the beginning
+// of the HTML DOM Created in the memory
+
+Object.defineProperty(document, 'doctype', {
+  value: `<!DOCTYPE html>`,
+});
+
+// define a transform property to Body so that HTML elements will be
+// traversed and based on events and data the body can be changed
+
+Object.defineProperty(document.body.style, 'transform', {
+  value: ()=>{
+    return {
+       enumerable: true, // Enabling Iteration over HTML DOM for element changes (binding)
+       configurable: true // allowing changes into the DOM based on events and Binding
+    };
+  }
+});
+
+```
+
+- modifications in tsconfig.spec.json
+
+```javascript
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/spec",
+    "types": [
+      "jest", /* Engine used by Angular to Test*/
+      "node" /* The Runtime to Execute Test Engine*/
+    ],
+    "esModuleInterop": true, /* Use and manage dependencies used in test code */
+    "emitDecoratorMetadata": true /* The test will use and compile the Angular decorators */
+  },
+  "files": [
+    "src/test.ts",
+    "src/polyfills.ts"
+  ],
+  "include": [
+    "src/**/*.spec.ts",
+    "src/**/*.d.ts"
+  ]
+}
+
+```
+
+- IMP*** Make sure that, comments in .json files are removed because Jest does not allow it
+
+- add jest.config.js for the Test Confoguration
+
+```javascript
+// the jest configuration file will be used to define
+// the integration between Jest and Angular so that when the Jest runs
+// Angular Test files will be transpiled and if any rendering is needed
+// it will be executed through the memory JSDOM
+
+// Read all JS/TS modules with their paths and transpile them
+const {pathsToModuleNameMapper} =  require('ts-jest/utils');
+// use the compileOption to transpile
+const {compilerOptions} = require('./tsconfig.spec.json');
+
+// Lets write Configuration
+
+module.exports ={
+  preset: 'jest-preset-angular', // load the JEST and Angular Integration
+  roots: ['<rootDir>/src'], // Start reading files from rootDir/src folder, this is an application folder
+  testMatch: ['**/+(*.)+(spec).+(ts)'], // the test file name
+  setupFilesAfterEnv:['<rootDir>/src/test.ts'] , // the file for test config
+  collectionCoverage: true, // use the code coverage
+  coverageReporters: ['html'], // html file showing coverage data
+  coverageDirectory: 'coverage/my-ng-app', // directory where coverage file will be created
+  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths || {}, {
+      prefix: '<rootDir>/'
+  }) // start the transpilation for all modules and its dependencies from the root
+};
+
+```
+
